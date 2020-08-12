@@ -1,30 +1,22 @@
-package com.mouse.mapreduce.learning.demo1;
+package com.mouse.mapreduce.learning.temperature.oldapi;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapred.MapReduceBase;
+import org.apache.hadoop.mapred.Mapper;
+import org.apache.hadoop.mapred.OutputCollector;
+import org.apache.hadoop.mapred.Reporter;
 
 import java.io.IOException;
 
-/**
- * 输入键 输入值 输出键和输出值的类型
- */
-public class MaxTemperatureMapper extends  Mapper<LongWritable,Text,Text, IntWritable> {
+public class MaxTemperatureMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable> {
 
     private static final int MISSING = 9999;
 
-    /**
-     *
-     * @param key 输入键
-     * @param value 输入值
-     * @param context 用于输出内容的写入
-     * @throws IOException
-     * @throws InterruptedException
-     */
     @Override
-    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String line = value.toString();
+    public void map(LongWritable longWritable, Text text, OutputCollector<Text, IntWritable> outputCollector, Reporter reporter) throws IOException {
+        String line = text.toString();
         String year = line.substring(15, 19);
         int airTemperature;
         if (line.charAt(87) == '+') { // parseInt doesn't like leading plus signs
@@ -34,7 +26,8 @@ public class MaxTemperatureMapper extends  Mapper<LongWritable,Text,Text, IntWri
         }
         String quality = line.substring(92, 93);
         if (airTemperature != MISSING && quality.matches("[01459]")) {
-            context.write(new Text(year), new IntWritable(airTemperature));
+            outputCollector.collect(new Text(year), new IntWritable(airTemperature));
         }
     }
+
 }

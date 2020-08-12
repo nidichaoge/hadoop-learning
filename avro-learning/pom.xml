@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>word-count</artifactId>
+    <artifactId>avro-learning</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>word-count</name>
+    <name>avro-learning</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,6 +19,19 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.avro/avro -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.avro/avro-mapred -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-mapred</artifactId>
+            <version>1.10.0</version>
+        </dependency>
 
     </dependencies>
 

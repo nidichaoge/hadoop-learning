@@ -1,4 +1,4 @@
-package com.mouse.mapreduce.learning.demo1.oldapi;
+package com.mouse.mapreduce.learning.temperature.oldapi;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class MaxTemperatureReducer extends MapReduceBase implements Reducer<Text, IntWritable, Text, IntWritable> {
+
     @Override
     public void reduce(Text text, Iterator<IntWritable> iterator, OutputCollector<Text, IntWritable> outputCollector, Reporter reporter) throws IOException {
         int maxValue = Integer.MIN_VALUE;
@@ -19,4 +20,5 @@ public class MaxTemperatureReducer extends MapReduceBase implements Reducer<Text
         }
         outputCollector.collect(text, new IntWritable(maxValue));
     }
+
 }

@@ -41,7 +41,7 @@
 <!--                            <transformers>-->
 <!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
 <!--                                    &lt;!&ndash;									<mainClass>com.bytedance.videoarch.tasks.rtc_server_schedule_log.BootstrapDwRtcServerScheduleLog</mainClass>&ndash;&gt;-->
-<!--                                    <mainClass>com.mouse.mapreduce.learning.demo.WordCount</mainClass>-->
+<!--                                    <mainClass>com.mouse.mapreduce.learning.wordcount.WordCount</mainClass>-->
 <!--                                </transformer>-->
 <!--                            </transformers>-->
 <!--                        </configuration>-->
