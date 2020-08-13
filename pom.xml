@@ -19,6 +19,7 @@
         <module>hadoop-io-learning</module>
         <module>hive-learning</module>
         <module>avro-learning</module>
+        <module>parquet-learning</module>
         <module>hbase-learning</module>
 
         <module>word-count</module>
