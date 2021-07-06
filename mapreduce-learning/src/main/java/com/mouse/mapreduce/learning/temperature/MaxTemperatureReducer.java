@@ -1,4 +1,4 @@
-package com.mouse.mapreduce.learning.demo1;
+package com.mouse.mapreduce.learning.temperature;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -9,10 +9,11 @@ import java.io.IOException;
 /**
  *
  */
-public class MaxTemperatureReducer extends Reducer<Text, IntWritable,Text,IntWritable> {
+public class MaxTemperatureReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
     /**
      * reduce函数的输入类型必须匹配map函数的输出类型，即Text和IntWritable
+     *
      * @param key
      * @param values
      * @param context
@@ -27,4 +28,5 @@ public class MaxTemperatureReducer extends Reducer<Text, IntWritable,Text,IntWri
         }
         context.write(key, new IntWritable(maxValue));
     }
+
 }

@@ -1,4 +1,4 @@
-package com.mouse.mapreduce.learning.demo;
+package com.mouse.mapreduce.learning.wordcount;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
@@ -61,4 +61,5 @@ public class WordCount {
             context.write(key, new LongWritable(counter));
         }
     }
+
 }

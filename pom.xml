@@ -7,11 +7,23 @@
     <artifactId>hadoop-learning</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hadoop-learning</name>
+    <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
+    <modules>
+        <module>mapreduce-learning</module>
+        <module>hadoop-io-learning</module>
+        <module>hive-learning</module>
+        <module>avro-learning</module>
+        <module>parquet-learning</module>
+        <module>hbase-learning</module>
+
+        <module>word-count</module>
+    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common -->
